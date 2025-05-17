@@ -1,0 +1,14 @@
+{
+  "enable_time_tracking": {
+    "description": "是否启用时间追踪功能",
+    "type": "bool",
+    "default": true,
+    "hint": "启用后会在系统提示中添加时间信息"
+  },
+  "show_user_info": {
+    "description": "是否显示用户信息",
+    "type": "bool",
+    "default": true,
+    "hint": "启用后会在时间信息中显示用户名和ID"
+  }
+} 
