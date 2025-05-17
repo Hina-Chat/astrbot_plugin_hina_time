@@ -1,0 +1,14 @@
+{
+  "enable_time_tracking": {
+    "description": "是否启用时间追踪功能",
+    "type": "bool",
+    "default": true,
+    "hint": "启用后会给llm模型传递用户多久后才跟llm模型再次对话"
+  },
+  "show_user_info": {
+    "description": "是否显示用户信息",
+    "type": "bool",
+    "default": true,
+    "hint": "启用后会在对llm模型中传递用户名和ID"
+  }
+} 
