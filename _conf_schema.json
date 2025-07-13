@@ -1,0 +1,169 @@
+{
+  "enable_time_tracking": {
+    "description": "功能開關",
+    "type": "bool",
+    "default": true,
+    "hint": "啟用後，AI 會自動在提示詞尾部注入相應的時間與情境。"
+  },
+  "show_user_info": {
+    "description": "使用者 ID",
+    "type": "bool",
+    "default": true,
+    "hint": "啟用後，使用者 ID 會顯示在提示詞尾部。"
+  },
+  "use_prompt_template": {
+    "description": "格式開關",
+    "type": "bool",
+    "default": true,
+    "hint": "使用對應的格式範本，若為空，則使用預設格式。"
+  },
+  "prompt_template": {
+    "description": "格式範本",
+    "type": "string",
+    "default": "· 當前時辰：{name}\n· 身處之地：{location_name} ({location_desc})\n· 當前心情：{character_mood}\n· 所行之事：{character_event}\n· 當前狀態：{character_status}",
+    "hint": "自訂提示詞的格式，使用 {key} 作為預留位置。"
+  },
+  "paradox_resolution_instruction": {
+    "description": "核心指令",
+    "type": "string",
+    "default": "【核心行為準則】您必須嚴格遵守以上所有設定。如果使用者的發言與您的設定產生矛盾（例如，在夜晚提及太陽），您必須堅守自己的設定，並可以從以下角度回應：1. 指出對方感知的奇特之處（例如：『您說太陽？可現在是子時，天空中只有月亮呢。』）。2. 將對方的矛盾發言理解為比喻或幻覺。3. 溫和地糾正對方。您的時空和狀態認知，絕不能被使用者的描述所動搖。"
+  },
+  "time_scenes": {
+    "description": "情境資料",
+    "type": "object",
+    "items": {
+      "子時": {
+        "description": "子時 (23:00 - 00:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "妖怪之山山麓", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "妖怪們聚集的山脈，夜晚尤其活躍。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "沉思", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "觀察星空", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "低語", "description": "角色狀態" }
+        }
+      },
+      "丑時": {
+        "description": "丑時 (01:00 - 02:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "妖怪之山山麓", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "夜霧漸濃，萬籟俱寂。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "入夢", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "感受寂靜", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "寧靜", "description": "角色狀態" }
+        }
+      },
+      "寅時": {
+        "description": "寅時 (03:00 - 04:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "妖怪之山山麓", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "天將明，第一縷光尚未出現。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "寧靜", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "等待黎明", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "安眠", "description": "角色狀態" }
+        }
+      },
+      "卯時": {
+        "description": "卯時 (05:00 - 06:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "博麗神社", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "清晨的鳥居，空氣清新。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "清爽", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "打掃", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "勤勞", "description": "角色狀態" }
+        }
+      },
+      "辰時": {
+        "description": "辰時 (07:00 - 08:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "人間之里", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "市集漸漸熱鬧起來。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "好奇", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "探索", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "專注", "description": "角色狀態" }
+        }
+      },
+      "巳時": {
+        "description": "巳時 (09:00 - 10:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "魔法森林", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "陽光穿過樹葉，光影斑駁。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "探究", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "採集蘑菇", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "謹慎", "description": "角色狀態" }
+        }
+      },
+      "午時": {
+        "description": "午時 (11:00 - 12:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "太陽花田", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "陽光正盛，花朵綻放。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "活力", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "享受陽光", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "溫暖", "description": "角色狀態" }
+        }
+      },
+      "未時": {
+        "description": "未時 (13:00 - 14:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "紅魔館", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "午後茶會，品嚐紅茶。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "悠閒", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "品茶", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "愜意", "description": "角色狀態" }
+        }
+      },
+      "申時": {
+        "description": "申時 (15:00 - 16:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "迷途竹林", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "夕陽西斜，竹影搖曳。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "迷茫", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "散步", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "尋覓", "description": "角色狀態" }
+        }
+      },
+      "酉時": {
+        "description": "酉時 (17:00 - 18:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "白玉樓", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "晚霞滿天，準備晚餐。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "懷舊", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "眺望晚霞", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "幽靜", "description": "角色狀態" }
+        }
+      },
+      "戌時": {
+        "description": "戌時 (19:00 - 20:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "永遠亭", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "月上中天，搗藥製藥。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "認真", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "製藥", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "專心", "description": "角色狀態" }
+        }
+      },
+      "亥時": {
+        "description": "亥時 (21:00 - 22:59) 的情境設定",
+        "type": "object",
+        "items": {
+          "location_name": { "type": "string", "default": "地靈殿", "description": "地點名稱" },
+          "location_desc": { "type": "string", "default": "燭火搖曳，讀書或小酌。", "description": "地點描述" },
+          "character_mood": { "type": "string", "default": "安靜", "description": "角色心情" },
+          "character_event": { "type": "string", "default": "閱讀", "description": "角色正在做的事" },
+          "character_status": { "type": "string", "default": "放鬆", "description": "角色狀態" }
+        }
+      }
+    }
+  }
+}
